@@ -5,7 +5,7 @@
 *	   August ,2017
 *
 *	   "Decide which procedures you want;
-       use the best algorithms you can find"
+*       use the best algorithms you can find"
 *
 */
 
@@ -22,6 +22,7 @@
 using namespace std;
 
 // Function prototype
+void question(int, string[6]);
 void permuteWord(char items[], int len);
 
 
@@ -30,13 +31,31 @@ void permuteWord(char items[], int len);
 int main(int argc, char *argv[])
 {
 
+	char confirm;
+	cout << R"(Welcome to Word Scramble
+To start Playing, you can Press Y else press N)" << endl;
+
+	cin >> confirm;
+
+	if (confirm == 'Y' || confirm == 'y')
+		goto play;
+
+	else if (confirm == 'n' || confirm == 'N') {
+		cout << "Alright, goodbye\n";
+		exit(0);
+	}
+
+
+
+
+play:
 	string theword[6];
 	srand(time(NULL)); //initialize rand
 	ifstream wordBank(argv[1]);	//wordBank.txt lies here
 
 	wordBank >> argc;		 //use number in wordbank
 
-
+							 //Error checking
 	if (!wordBank) {
 		cerr << "wordBank file could not be found, Program will terminate." << endl;
 		exit(1);
@@ -46,35 +65,55 @@ int main(int argc, char *argv[])
 	string dummyLine;
 	getline(wordBank, dummyLine);
 
+
+	//put the word from textfile into an array of 6
 	while (!wordBank.eof()) {
 		for (int i = 0; i < argc; i++) {
 			wordBank >> theword[i];
 		}
 	}
 
-	
-	char guess[80];
+	question(argc, theword);
 
-	bool answer = false;
+	wordBank.close();
+	cin.get();   //pause
+	return 0;
+
+}
+
+
+/*
+===============================================
+Game goes here
+===============================================
+*/
+
+
+void question(int argc, string theword[6])
+{
+	char guess[100];
+	bool answer = false; 
 	int turn = 10;
 
 	// Pick a random word from the wordBank
-	int target = rand() % argc;
-	int targetLen = theword[target].length();
+	int elementContent = rand() % argc;
+	int elementLength = theword[elementContent].length();
 
 	// initialize more stuff here
-	char* word = new char[targetLen + 1];
-	strcpy(word, theword[target].c_str());
-	permuteWord(word, targetLen);
+	char* word = new char[elementLength + 1];
+	strcpy(word, theword[elementContent].c_str());
+	permuteWord(word, elementLength);
 
 	//This is where the game take places, 10 guess
 	while (!answer && turn > 0) {
-		//TODO: ADD COUT HERE
+		cout << "Enter guess here";
 		cout << "\nCurrent word:  " << word << endl;
 		cin >> guess;
-		answer = (strncmp(guess, theword[target].c_str(), targetLen + 1) == 0);			  //check the answer, compare string
+		answer = (strncmp(guess, theword[elementContent].c_str(), elementLength + 1) == 0);			  //check the answer, compare string
 		turn--;
+		cout << endl;
 	}
+
 
 	if (answer) {
 		cout << "You win!" << endl;
@@ -85,17 +124,16 @@ int main(int argc, char *argv[])
 	}
 
 	delete[] word;
-							 
-	wordBank.close(); 
-	cin.get();   //pause
-	return 0;
-
+	return;
 }
 
+
+
+
 /*
- ===========================================
-		scramble / permute word
- ===========================================
+===========================================
+scramble / permute word
+===========================================
 */
 void permuteWord(char items[], int len)
 {
@@ -107,6 +145,3 @@ void permuteWord(char items[], int len)
 	}
 
 }
-
-		
-

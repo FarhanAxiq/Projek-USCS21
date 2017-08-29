@@ -1,4 +1,4 @@
 ﻿  projekexample.cpp
-c:\users\farhan\documents\visual studio 2015\projects\projekexample\projekexample.cpp(33): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  projekexample.vcxproj -> c:\Users\Farhan\documents\visual studio 2015\Projects\projekexample\Debug\projekexample.exe
-  projekexample.vcxproj -> c:\Users\Farhan\documents\visual studio 2015\Projects\projekexample\Debug\projekexample.pdb (Full PDB)
+c:\users\farhan\documents\github\projek-uscs21\projek1c++\projekexample.cpp(53): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  projekexample.vcxproj -> C:\Users\Farhan\Documents\GitHub\Projek-USCS21\Projek1c++\Debug\projekexample.exe
+  projekexample.vcxproj -> C:\Users\Farhan\Documents\GitHub\Projek-USCS21\Projek1c++\Debug\projekexample.pdb (Full PDB)
