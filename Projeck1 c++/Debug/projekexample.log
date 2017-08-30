@@ -1,0 +1,5 @@
+﻿  stdafx.cpp
+  projekexample.cpp
+c:\users\farhan\documents\github\projek-uscs21\projeck1 c++\projekexample.cpp(60): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  projekexample.vcxproj -> C:\Users\Farhan\Documents\GitHub\Projek-USCS21\Projeck1 c++\Debug\projekexample.exe
+  projekexample.vcxproj -> C:\Users\Farhan\Documents\GitHub\Projek-USCS21\Projeck1 c++\Debug\projekexample.pdb (Full PDB)
