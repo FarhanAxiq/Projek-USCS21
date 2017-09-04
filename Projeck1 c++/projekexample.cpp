@@ -1,5 +1,5 @@
 /*
-*	   WordScrambler.cpp
+*	   projekexample.cpp
 *	   Written by FarhanAxiq - Ditulis oleh FarhanAxiq
 *	   ©2017 All right reserved	 - Hak cipta Terpelihara
 *	   August ,2017
@@ -13,11 +13,11 @@
 #include <iostream>
 #include <string>	  //std::string
 #include <fstream>	  //ifstream
-#include <stdlib.h>
+#include <stdlib.h>	  //rand
 #include <string.h>	  //c-style string
 #include <time.h>	  //srand()
-
-
+#include <windows.h>  //enable playsound function
+#include "MMSystem.h" 
 
 using namespace std;
 
@@ -31,6 +31,8 @@ void permuteWord(char items[], int len);
 int main(int argc, char *argv[])
 {
 
+	system("Color 2F");
+	PlaySound(TEXT("wordscramble.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);		   //TODO: REPLACE THE SOUND
 	char confirm;
 	cout << R"(
 ===========================================================
@@ -57,7 +59,7 @@ To start Playing, you can Press Y else press N
 
 play:
 	string theword[6];
-	srand(time(NULL)); //initialize rand
+	srand(unsigned(time(NULL))); //initialize rand
 	ifstream wordBank(argv[1]);	//wordBank.txt lies here
 
 	wordBank >> argc;		 //use number in wordbank
@@ -124,6 +126,7 @@ void question(int argc, string theword[6])
 	while (!answer && turn > 0) {
 		cout << "Enter guess here";
 		cout << "\nCurrent word:  " << word << endl;
+		cout << "current turn: " << turn << endl;
 		cin >> guess;
 		answer = (strncmp(guess, theword[elementContent].c_str(), elementLength + 1) == 0);			  //check the answer, compare string
 		turn--;
@@ -161,8 +164,6 @@ void question(int argc, string theword[6])
 	delete[] word;
 	return;
 }
-
-
 
 
 /*

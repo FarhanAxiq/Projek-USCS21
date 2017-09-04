@@ -12,6 +12,8 @@
 
 #include <tchar.h>
 
+#pragma comment(lib, "winmm.lib")
+
 
 
 // TODO: reference additional headers your program requires here

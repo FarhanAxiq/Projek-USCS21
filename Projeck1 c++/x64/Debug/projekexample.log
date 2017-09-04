@@ -1,0 +1,5 @@
+﻿  stdafx.cpp
+  projekexample.cpp
+c:\users\farhan\documents\github\projek-uscs21\projeck1 c++\projekexample.cpp(117): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  projekexample.vcxproj -> C:\Users\Farhan\Documents\GitHub\Projek-USCS21\Projeck1 c++\x64\Debug\projekexample.exe
+  projekexample.vcxproj -> C:\Users\Farhan\Documents\GitHub\Projek-USCS21\Projeck1 c++\x64\Debug\projekexample.pdb (Full PDB)
